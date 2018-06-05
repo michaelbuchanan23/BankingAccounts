@@ -9,11 +9,10 @@ namespace BankingAccounts {
 		public double IntRate { get; set; } //current interest rate -- double type since more than 2 decimals may be needed
 
 		//Method for calculating interest payment, updating the balance and then rounding the balance to 2 decimal places 
-		public void CalcIntRate(double IntRate) {
-			double NewBalance = 0;
-			NewBalance = (double)Balance + ((double)Balance * (IntRate * .01));
-			this.Balance = (decimal)(NewBalance);
+		public void CalcInterest(double IntRate) {
+			this.Balance= (decimal)((double)Balance + ((double)Balance * (IntRate * .01)));
 			this.Balance = Math.Round(this.Balance, 2, MidpointRounding.AwayFromZero);
+			//greg used the deposit method from accounts to add money to the account since we don't want to be able to set the balance
 		}
 
 		//creating an intializtion method for the constructor to reuse lines of code
@@ -32,5 +31,12 @@ namespace BankingAccounts {
 			Initialization(nbr, Balance);
 			this.Description = "My Savings Account";
 		}
+		/* constructor with inherited values which is how Greg did this -- calls to the constructor in Account.cs
+		public Savings(string nbr, decimal Balance: base(nbr, Description, Balance) {
+			Initialization(nbr, Balance);
+			this.Description = "My Savings Account";
+
+			}
+		*/
 	}
 }
