@@ -16,11 +16,21 @@ namespace BankingAccounts {
 			this.Balance = Math.Round(this.Balance, 2, MidpointRounding.AwayFromZero);
 		}
 
-		//constructor method to open a new savings account
-		public Savings(string nbr, decimal Balance, string Description) {
+		//creating an intializtion method for the constructor to reuse lines of code
+		private void Initialization(string nbr, decimal Balance) {
 			this.nbr = nbr;
 			this.Balance = Balance;
+		}
+
+		//constructor method to open a new savings account
+		public Savings(string nbr, decimal Balance, string Description) {
+			Initialization(nbr, Balance);
 			this.Description = Description;
+		}
+
+		public Savings(string nbr, decimal Balance) {
+			Initialization(nbr, Balance);
+			this.Description = "My Savings Account";
 		}
 	}
 }

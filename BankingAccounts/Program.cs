@@ -12,7 +12,6 @@ namespace BankingAccounts {
 
 			s1.AccountInfo(); //calling the account info method which displays the account info on the screen
 
-
 			s1.CalcDeposit(100.25M); //calling the deposit method to deposit money into the savings account
 			Console.WriteLine("------------------------------------------------");
 			s1.GetBalance(); //calling the GetBalance method to obtain the balance after the deposit
